@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('./config/database');
-const { User, Role, UserRole } = require('./models');
-const checkRole = require('./middleware/checkrole');
+const sequelize = require('../config/database');
+const { User, Role, UserRole } = require('../models');
+const checkRole = require('../middleware/checkrole');
 
 const app = express();
 app.use(bodyParser.json());
@@ -42,5 +42,5 @@ app.get('/admin', checkRole('Admin'), async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+//const PORT = process.env.PORT || 3001;
+//app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
